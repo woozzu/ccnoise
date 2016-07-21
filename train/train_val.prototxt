@@ -1,0 +1,117 @@
+layer {
+  name: "train_input"
+  type: "Data"
+  top: "input"
+  include {
+    phase: TRAIN
+  }
+  data_param {
+    source: "data/train_input"
+    batch_size: 64
+    backend: LMDB
+  }
+  transform_param {
+    scale: 0.0039215686274509803921568627451
+  }
+}
+layer {
+  name: "train_label"
+  type: "Data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  data_param {
+    source: "data/train_label"
+    batch_size: 64
+    backend: LMDB
+  }
+}
+layer {
+  name: "val_input"
+  type: "Data"
+  top: "input"
+  include {
+    phase: TEST
+  }
+  data_param {
+    source: "data/val_input"
+    batch_size: 64
+    backend: LMDB
+  }
+  transform_param {
+    scale: 0.0039215686274509803921568627451
+  }
+}
+layer {
+  name: "val_label"
+  type: "Data"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  data_param {
+    source: "data/val_label"
+    batch_size: 64
+    backend: LMDB
+  }
+}
+layer {
+  name: "ip1"
+  type: "InnerProduct"
+  bottom: "input"
+  top: "ip1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 0.1
+  }
+  inner_product_param {
+    num_output: 200
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "tanh1"
+  type: "TanH"
+  bottom: "ip1"
+  top: "ip1"
+}
+layer {
+  name: "ip2"
+  type: "InnerProduct"
+  bottom: "ip1"
+  top: "ip2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 0.1
+  }
+  inner_product_param {
+    num_output: 6
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "loss"
+  type: "EuclideanLoss"
+  bottom: "ip2"
+  bottom: "label"
+  top: "loss"
+}
