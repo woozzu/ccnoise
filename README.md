@@ -2,17 +2,18 @@
 For more information, please visit our [project page](http://snam.ml/research/ccnoise).
 
 To run demo,
-1. Create a dataset from temporal images: run 'demo_dataset.m'
-2. Create training data: run 'train/demo_create_training_data.py'
-3. Train a multi-layer perceptron (MLP): run 'caffe.exe train -solver=train/solver.prototxt'
-4. Estimate the noise parameters of a test image using the trained MLP: run 'demo_estimation.m'
+- Create a dataset from temporal images: run 'demo_dataset.m'
+- Create training data: run 'train/demo_create_training_data.py'
+- Train a multi-layer perceptron (MLP): run 'caffe.exe train -solver=train/solver.prototxt'
+- Estimate the noise parameters of a test image using the trained MLP: run 'demo_estimation.m'
 
 # Citation
 Please cite the following paper in your publications if you use our cross-channel image noise model:
-@inproceedings{nam2016holistic,
-  title={A Holistic Approach to Cross-Channel Image Noise Modeling and Its Application to Image Denoising},
-  author={Nam, Seonghyeon and Hwang, Youngbae and Matsushita, Yasuyuki and Kim, Seon Joo},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
-  pages={1683--1691},
-  year={2016}
-}
+
+    @inproceedings{nam2016holistic,
+      title={A Holistic Approach to Cross-Channel Image Noise Modeling and Its Application to Image Denoising},
+      author={Nam, Seonghyeon and Hwang, Youngbae and Matsushita, Yasuyuki and Kim, Seon Joo},
+      booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+      pages={1683--1691},
+      year={2016}
+    }
