@@ -7,6 +7,8 @@ To run demo,
 - Train a multi-layer perceptron (MLP): run `caffe.exe train -solver=train/solver.prototxt`
 - Estimate the noise parameters of a test image using a trained MLP: run `demo_estimation.m`
 
+Note that the example data is only for demo and may not be enough to reproduce our work. To do this, you should take many temporal images (for example, 500, 1000, ...) or download [our dataset](http://snam.ml/research/ccnoise).
+
 # Citation
 Please cite the following paper in your publications if you use our cross-channel image noise model:
 
