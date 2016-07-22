@@ -4,7 +4,7 @@ For more information, please visit our [project page](http://snam.ml/research/cc
 To run demo,
 - Create a dataset from temporal images: run `demo_dataset.m`
 - Create training data: run `train/demo_create_training_data.py`
-- Train a multi-layer perceptron (MLP): run `caffe.exe train -solver=train/solver.prototxt`
+- Train a multi-layer perceptron (MLP): run `caffe train -solver=train/solver.prototxt`
 - Estimate the noise parameters of a test image using a trained MLP: run `demo_estimation.m`
 
 Note that the example data is only for demo and may not be enough to reproduce our work. To do this, you should take many temporal images (for example, 500, 1000, ...) or download [our dataset](http://snam.ml/research/ccnoise).
